@@ -13,9 +13,8 @@ public class CreateDemo {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
-                .buildSessionFactory()) {
-            Session session = sessionFactory.getCurrentSession();
-
+                .buildSessionFactory();
+             Session session = sessionFactory.getCurrentSession()) {
             Instructor instructor = new Instructor("Madhu", "Patel", "madhu@luv2code");
             InstructorDetail instructorDetail = new InstructorDetail("http://www.youtube.com", "Guitar");
             instructor.setInstructorDetail(instructorDetail);
@@ -29,7 +28,7 @@ public class CreateDemo {
 
             System.out.println("Done!");
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }

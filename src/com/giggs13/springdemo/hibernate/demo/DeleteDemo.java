@@ -15,9 +15,8 @@ public class DeleteDemo {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
-                .buildSessionFactory()) {
-            Session session = sessionFactory.getCurrentSession();
-
+                .buildSessionFactory();
+             Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
 
             int id = 1;
@@ -30,7 +29,7 @@ public class DeleteDemo {
 
             session.getTransaction().commit();
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }
